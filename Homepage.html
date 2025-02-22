@@ -3,129 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Rosella Jade Asetre Ricafort</title>
-    <style>
-        body {
-            background-color: black;
-            color: rgb(245, 245, 245);
-            font-family: 'Fira Code', monospace;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-        p {
-            color: white;
-            align-items: center;
-        }
-        .container {
-            border: 3px solid rgb(0, 0, 0);
-            background: black; 
-            display: flex;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            width: 1000px; 
-            height: 500px;
-            padding: 20px; /* Added padding */
-        }
-        .profile-pic {
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            border: 3px solid rgb(181, 65, 154);
-            margin-right: 30px;
-        }
-        .intro {
-            max-width: 500px;
-            text-align: justify;
-            font-size: 17px;
-        }
-        .side-menu {
-            position: absolute;
-            right: 0px; 
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 1, 191, 0.1);
-            padding: 10px;
-            border-radius: 10px 0 0 10px;
-            transition: 0.3s;
-            color: white;
-        }
-        .side-menu:hover {
-            background: rgba(0, 0, 0, 0.3);
-        }
-        .side-menu ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .side-menu li {
-            padding: 10px 20px;
-            cursor: pointer;
-            transition: 0.3s;
-            background: rgba(255, 255, 255, 0.2);
-            margin: 5px 0;
-            border-radius: 5px;
-            text-align: center;
-        }
-        .side-menu li:hover {
-            background: rgba(255, 255, 255, 0.5);
-            color: rgb(255, 6, 180);
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-    
-        @media (max-width: 768px) {
-            body {
-                display: block; 
-                height: auto;
-                padding: 20px; 
-            }
-            .container {
-                flex-direction: column;
-                width: 90%; 
-                height: auto;
-                padding: 15px; 
-            }
-            .profile-pic {
-                width: 250px;
-                height: 250px;
-                margin: 0 auto 15px; 
-            }
-            .intro {
-                max-width: 100%;
-                text-align: center;
-                font-size: 15px;
-                padding: 10px;
-            }
-            .side-menu {
-                right: auto;
-                left: 50%;
-                top: auto;
-                bottom: 20px;
-                transform: translateX(-50%);
-                border-radius: 10px;
-                padding: 5px;
-            }
-        }
-    </style>    
+    <title>Homepage - Rosella Jade Asetre Ricafort</title>
+    <link rel="stylesheet" href="Homepage.css">
 </head>
 <body>
     <canvas id="codingCanvas"></canvas>
     <div class="container">
         <img src="https://i.pinimg.com/736x/62/30/39/62303977a7c1e02232a1488a0cee9064.jpg" alt="Rosella Jade" class="profile-pic">
         <div class="intro">
-            <p><h1 style="color: rgb(239, 9, 166);">Hello!, my name is</h1><strong>Rosella Jade Asetre Ricafort</strong>,</br>
+            <p><h1>Hello!, my name is</h1><strong><h1 style="color: rgb(239, 9, 239);"><u>Rosella Jade Ricafort</u></h1></strong></br>
                 but you can call me <strong>Jade</strong> or <strong>Rosella</strong>.</br>
                 I am currently a <strong>2nd-year</br>
                 Computer Science student</strong></br> 
@@ -137,59 +23,17 @@
     </div>
         <div class="side-menu">
             <ul>
-                <li>About Me</li>
-                <li>Education</li>
-                <li>Certificates</li>
-                <li>Skills</li>
-                <li>Organization</li>
-                <li>Trainings & Events</li>
-                <li>Projects</li>
-                <li>Services</li>
-                <li>Contacts</li>
+                <li onclick="redirect('AboutMe.html')">About Me</li>
+                <li onclick="redirect('education.html')">Education</li>
+                <li onclick="redirect('certificates.html')">Certificates</li>
+                <li onclick="redirect('skills.html')">Skills</li>
+                <li onclick="redirect('organization.html')">Organization</li>
+                <li onclick="redirect('trainings-events.html')">Trainings & Events</li>
+                <li onclick="redirect('projects.html')">Projects</li>
+                <li onclick="redirect('services.html')">Services</li>
+                <li onclick="redirect('contacts.html')">Contacts</li>
             </ul>
     </div>
-    <script>
-        function startCodingEffect() {
-            const canvas = document.getElementById('codingCanvas');
-            const ctx = canvas.getContext('2d');
-
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-
-            let chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            let charArray = chars.split("");
-            let fontSize = 25;
-            let columns = canvas.width / fontSize;
-            let drops = [];
-
-            for (let i = 0; i < columns; i++) {
-                drops[i] = 1;
-            }
-
-            function draw() {
-                ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = "#DDA0DD";
-                ctx.font = fontSize + "px 'Courier New'";
-
-                for (let i = 0; i < drops.length; i++) {
-                    let text = charArray[Math.floor(Math.random() * charArray.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-
-                    drops[i]++;
-                }
-            }
-
-            setInterval(draw, 50);
-        }
-
-        window.onload = startCodingEffect;
-        window.onresize = startCodingEffect;
-    </script>
+        <script src="Homepage.js"></script>
 </body>
 </html>
