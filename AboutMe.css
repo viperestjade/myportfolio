@@ -1,0 +1,226 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      background: #111; 
+      color: #fff; 
+      font-family: 'Fira Code', monospace;
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      justify-content: center; 
+      height: 100vh; 
+      overflow: hidden; 
+      position: relative; 
+    }
+    canvas { 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      z-index: -1; 
+    }
+    .container { 
+      width: 1000px; 
+      height: 600px; 
+      position: relative; 
+      overflow: hidden; 
+      z-index: 1;
+    }
+    .content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+    background: #000; 
+    border: 2px solid #fff;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    }
+    h1 {
+    color: rgb(183, 9, 241);
+    text-align: center;
+    margin-bottom: 15px; /* Ensures separation from the lists */
+    }
+    .content.active {
+    opacity: 1;
+    }
+    .controls { 
+      margin-top: 20px; 
+      display: flex; 
+      gap: 10px; 
+      z-index: 1; 
+      position: relative;
+    }
+    button { 
+      font-family: 'Fira Code', monospace;
+      background: #fff; 
+      color: #111; 
+      border: none; 
+      padding: 10px 15px; 
+      cursor: pointer; 
+      font-size: 1em; 
+    }
+    button:hover { background: #9500ff; }
+    ul {
+        margin-top: 10px;  
+    }
+    li {
+        margin-bottom: 10px; 
+    }
+    .hobbies-container {
+        display: flex;
+        gap: 20px;
+    }
+    .column {
+        width: 50%;
+    }
+    .cat {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+  }
+
+  .cat-body {
+    width: 150px;
+    height: 80px;
+    background: rgb(122, 4, 158);
+    border-radius: 50px;
+    position: absolute;
+    bottom: 0;
+  }
+  .cat-leg {
+    width: 60px;
+    height: 30px;
+    background: rgb(122, 4, 158);
+    position: absolute;
+    border-radius: 50%;
+}
+.front-left {
+    left: 15px;
+    top: 90px;
+}
+.front-right {
+    left: 15px;
+    top: 90px;
+}
+.back-left {
+    left: 80px;
+    top: 90px;
+}
+.back-right {
+    left: 80px;
+    top: 90px;
+}
+.cat-tail {
+    width: 20px;
+    height: 20px;
+    background: rgb(122, 4, 158);
+    border-radius: 50px;
+    position: absolute;
+    bottom: 100;
+    left: 145px;
+    top: 40px;
+}
+  .cat-ear {
+    width: 20px;
+    height: 50px;
+    background: rgb(122, 4, 158);
+    position: absolute;
+    top: -15px;
+    border-radius: 50%;
+  }
+
+  .left-ear {
+    left: 7px;
+    transform: rotate(-30deg); 
+  }
+
+  .right-ear {
+    right: 7px; 
+    transform: rotate(30deg); 
+  }
+
+  .cat-eye {
+    width: 12px;
+    height: 12px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .left-eye {
+    left: 20px; 
+  }
+
+  .right-eye {
+    right: 20px; 
+  }
+
+  .cat-eye::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50%;
+    animation: blink 4s infinite;
+  }
+
+  @keyframes blink {
+    0%, 90% { transform: scaleY(1); }
+    92%, 96% { transform: scaleY(0.1); }
+    100% { transform: scaleY(1); }
+  }
+
+  @keyframes look-around {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    60% { transform: translateY(-3px); }
+    80% { transform: translateY(3px); }
+  }
+
+  .cat-eye {
+    animation: look-around 5s infinite alternate;
+  }
+
+  .cat-nose {
+    width: 12px;
+    height: 12px;
+    background: pink;
+    position: absolute;
+    bottom: 50px;
+    left: 30px;  
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.cat-whiskers {
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    background: white;
+    top: 40px;
+    animation: whisker-move 3s infinite alternate ease-in-out;
+}
+
+.whisker-left-1 { left: -20px; transform: rotate(10deg); }
+.whisker-left-2 { left: -20px; top: 45px; }
+.whisker-left-3 { left: -20px; top: 50px; transform: rotate(-10deg); }
+
+.whisker-right-1 { right: -20px; transform: rotate(-10deg); }
+.whisker-right-2 { right: -20px; top: 45px; }
+.whisker-right-3 { right: -20px; top: 50px; transform: rotate(10deg); }
+
+  @keyframes whisker-move {
+    0% { transform: scaleX(1); }
+    50% { transform: scaleX(1.1); }
+    100% { transform: scaleX(1); }
+  }
